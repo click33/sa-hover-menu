@@ -8,8 +8,8 @@
 		<!-- 遮罩 -->
 		<view class="mask" v-if="show" @tap="show = false" @touchmove.stop.prevent></view>
 		<!-- 按钮 -->
-		<view class="major-box" :class="{show: show}" :style="{top: top }" >
-			<view class="click-btn" @tap="show = !show" draggable="true" @touchmove.stop.prevent="touchmove">
+		<view class="major-box" :class="{show: show}" :style="{top: top + 'px' }" >
+			<view class="click-btn" @tap="show = !show" draggable="true" @touchstart="touchstart" @touchmove.stop.prevent="touchmove">
 				<view>快捷</view>
 				<view>导航</view>
 			</view>
@@ -28,7 +28,8 @@ export default {
 	data() {
 		return {
 			show: false ,// 是否显示
-			top: '600rpx',	// 顶端距离 
+			top: 300,	// 顶端距离 
+			deviationTop: 0,	// 偏移量
 			windowHeight: uni.getSystemInfoSync().windowHeight,	// 视图高度 
 			btnList: [		// 所有按钮 
 				{
@@ -69,17 +70,24 @@ export default {
 		clickBtn: function(btn) {
 			console.log('点击了：' + btn.text);
 		},
-		// 上下滑动 
+		// 拖动开始，记录一下偏移量
+		touchstart: function(e) {
+			var touch = e.touches[0] || e.changedTouches[0];
+			this.deviationTop = touch.clientY - this.top;
+			// console.log(this.deviationTop);
+		},
+		// 上下拖动时 
 		touchmove: function(e) {
 			var touch = e.touches[0] || e.changedTouches[0];
 			var top = touch.clientY;
+			top = top - this.deviationTop;
 			if (top < 0) {
 				top = 0;
 			}
 			if (top > this.windowHeight - 40) {
 				top = this.windowHeight - 40;
 			}
-			this.top = top + 'px';
+			this.top = top;
 			return false;
 		},
 	}

@@ -5,10 +5,24 @@
 		
 		<!-- 填充内容 -->
 		<image class="logo" src="/static/logo.png"></image>
-		<view class="text-area">
+		<!-- <view class="text-area">
 			<text class="title">{{title}}</text>
-		</view>
+		</view> -->
 		<view class="full-box">
+			<view>充数</view>
+			<view>充数</view>
+			<view>充数</view>
+			<view>充数</view>
+			<view>充数</view>
+			<view>充数</view>
+			<view>充数</view>
+			<view>充数</view>
+			<view>充数</view>
+			<view>充数</view>
+			<view>充数</view>
+			<view>充数</view>
+			<view>充数</view>
+			<view>充数</view>
 			<view>充数</view>
 			<view>充数</view>
 			<view>充数</view>
@@ -63,9 +77,9 @@
 	}
 
 	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
+		height: 100rpx;
+		width: 100rpx;
+		margin-top: 100rpx;
 		margin-left: auto;
 		margin-right: auto;
 		margin-bottom: 50rpx;
