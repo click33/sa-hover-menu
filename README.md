@@ -20,5 +20,5 @@ export default {
 使用
 ``` html 
     <!-- 将插件随便放一个位置 -->
-		<sa-hover-menu></sa-hover-menu>
+    <sa-hover-menu></sa-hover-menu>
 ```
