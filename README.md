@@ -1,6 +1,6 @@
 # sa-hover-menu
 
-uniapp悬浮球插件
+uniapp悬浮菜单插件 快捷导航
 
 ## 集成
 
